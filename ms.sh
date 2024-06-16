@@ -13,6 +13,8 @@ main ()
 	if [[ -n "$url" && -n "$name" ]]; then
 		getTrack
 	else
+		trap "clear && exit" SIGINT
+
 		read -p "url: " url
 		read -p "track: " name
 		[[ -n "$url" && -n "$name" ]] && getTrack
